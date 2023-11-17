@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Class and Interface in Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        code {
+            background-color: #f9f9f9;
+            padding: 3px 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Abstract Class and Interface in Java</h1>
+    </header>
+
+    <section>
+        <h2>Abstract Class: Shape</h2>
+        <p>An abstract class in Java is a class that cannot be instantiated on its own. It serves as a blueprint for other classes.</p>
+        <p>Example:</p>
+        <code>
+            // Abstract class<br>
+            abstract class Shape {<br>
+            &nbsp;&nbsp; // Concrete method<br>
+            &nbsp;&nbsp; public void display() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("This is a shape.");<br>
+            &nbsp;&nbsp; }<br>
+            <br>
+            &nbsp;&nbsp; // Abstract method<br>
+            &nbsp;&nbsp; public abstract double calculateArea();<br>
+            }<br>
+        </code>
+
+        <p><strong>Observations:</strong></p>
+        <ul>
+            <li>An abstract class is declared using the <code>abstract</code> keyword.</li>
+            <li>It may contain both concrete methods with a body and abstract methods without a body.</li>
+            <li>Objects of an abstract class cannot be instantiated.</li>
+            <li>Abstract methods in the abstract class act as a blueprint for the methods that must be implemented by the subclasses.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Concrete Subclass: Circle</h2>
+        <p>The <code>Circle</code> class extends the <code>Shape</code> abstract class and provides a concrete implementation for the <code>calculateArea</code> method.</p>
+        <p>Example:</p>
+        <code>
+            // Concrete subclass<br>
+            class Circle extends Shape {<br>
+            &nbsp;&nbsp; // Implementation of the abstract method<br>
+            &nbsp;&nbsp; public double calculateArea() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; double radius = 5.0;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; return Math.PI * radius * radius;<br>
+            &nbsp;&nbsp; }<br>
+            }<br>
+        </code>
+
+        <p><strong>Observations:</strong></p>
+        <ul>
+            <li>A concrete subclass extends the abstract class using the <code>extends</code> keyword.</li>
+            <li>It provides concrete implementations for all the abstract methods declared in the abstract class.</li>
+            <li>Concrete methods from the abstract class can be used directly in the subclass.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Concrete Subclass: Rectangle</h2>
+        <p>The <code>Rectangle</code> class also extends the <code>Shape</code> abstract class and provides a concrete implementation for the <code>calculateArea</code> method.</p>
+        <p>Example:</p>
+        <code>
+            // Concrete subclass<br>
+            class Rectangle extends Shape {<br>
+            &nbsp;&nbsp; // Implementation of the abstract method<br>
+            &nbsp;&nbsp; public double calculateArea() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; double length = 4.0;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; double width = 3.0;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; return length * width;<br>
+            &nbsp;&nbsp; }<br>
+            }<br>
+        </code>
+
+        <p><strong>Observations:</strong></p>
+        <ul>
+            <li>Multiple concrete subclasses can extend the same abstract class, providing different implementations for its abstract methods.</li>
+            <li>The abstract class provides a common interface through its abstract methods while allowing for variations in the implementations.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Interface: Logger</h2>
+        <p>An interface in Java is a collection of abstract methods. It defines a contract that implementing classes must adhere to.</p>
+        <p>Example:</p>
+        <code>
+            // Interface<br>
+            interface Logger {<br>
+            &nbsp;&nbsp; // Abstract method<br>
+            &nbsp;&nbsp; void log(String message);<br>
+            }<br>
+        </code>
+
+        <p><strong>Observations:</strong></p>
+        <ul>
+            <li>An interface is declared using the <code>interface</code> keyword.</li>
+            <li>It can only contain abstract methods (methods without a body) and constants.</li>
+            <li>Classes that implement an interface must provide concrete implementations for all the methods declared in the interface.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Concrete Class Implementing Interface: ConsoleLogger</h2>
+        <p>The <code>ConsoleLogger</code> class implements the <code>Logger</code> interface and provides a concrete implementation for the <code>log</code> method.</p>
+        <p>Example:</p>
+        <code>
+            // Concrete class implementing interface<br>
+            class ConsoleLogger implements Logger {<br>
+            &nbsp;&nbsp; // Implementation of the interface method<br>
+            &nbsp;&nbsp; public void log(String message) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Logging: " + message);<br>
+            &nbsp;&nbsp; }<br>
+            }<br>
+        </code>
+
+        <p><strong>Observations:</strong></p>
+        <ul>
+            <li>A class implements an interface using the <code>implements</code> keyword.</li>
+            <li>It must provide concrete implementations for all the methods declared in the interface.</li>
+            <li>One class can implement multiple interfaces in Java.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Main Program</h2>
+        <p>The <code>Main</code> class demonstrates the usage of the abstract class, its concrete subclasses, and the interface.</p>
+        <p>Example:</p>
+        <code>
+            // Main program<br>
+            public class Main {<br>
+            &nbsp;&nbsp; public static void main(String[] args) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Circle circle = new Circle();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; circle.display();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Area of Circle: " + circle.calculateArea());<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Rectangle rectangle = new Rectangle();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; rectangle.display();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; System.out.println("Area of Rectangle: " + rectangle.calculateArea());<br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; // Using Interface<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Logger logger = new ConsoleLogger();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; logger.log("Hello, Interface!");<br>
+            &nbsp;&nbsp; }<br>
+            }<br>
+        </code>
+    </section>
+
+    <section class="name">
+        <p>
+            <h2>Name of Group Members :</h2>
+            <br>
+            <br>1. Raunak Bhattacharya - 2230605
+            <br>2. Subhashis Basak - 2230606
+            <br>3. Ayush Dutta - 2230601
+            <br>4. Soumyadwip Das - 2230610
+            <br>5. Mrinmoy Low - 2130115
+        </p>
+    </section>
+</body>
+
+</html>
